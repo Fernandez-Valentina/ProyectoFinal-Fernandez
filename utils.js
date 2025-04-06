@@ -21,8 +21,12 @@ export function generarPronostico(dias) {
 }
 
 // Mostrar errores en pantalla
-export function mostrarError(elementId, mensaje) {
-    document.getElementById(elementId).textContent = mensaje;
+export function mostrarError(mensaje) {
+    Swal.fire({
+        icon: 'error',
+        tilte: '¡Error!',
+        text: mensaje,
+    });
 }
 
 // Mostrar historial
@@ -49,4 +53,12 @@ export function guardarEnHistorial(consulta) {
 export function borrarHistorial() {
     localStorage.removeItem("historial");
     mostrarHistorial();
+
+    Swal.fire ({
+        icon: 'success',
+        title: '¡Historial Borrado!',
+        text: 'El historial ha sido eliminado.',
+        timer: 2000,
+        showConfirmButton: false
+    });
 }

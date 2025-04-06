@@ -12,7 +12,7 @@ function mostrarClimaActual() {
     let ciudad = document.getElementById("ciudad").value.trim();
 
     if (ciudad === "" || /\d/.test(ciudad)) {
-        mostrarError("errorCiudad", "Por favor, ingrese una ciudad válida.");
+        mostrarError("Por favor, ingrese una ciudad válida.");
         return;
     }
 
@@ -32,7 +32,7 @@ function mostrarPronostico() {
     let dias = parseInt(document.getElementById("dias").value);
 
     if (isNaN(dias) || dias < 1 || dias > 5) {
-        mostrarError("errorPronostico", "Por favor, ingrese un número válido entre 1 y 5.");
+        mostrarError("Por favor, ingrese un número válido entre 1 y 5.");
         return;
     }
 
@@ -48,7 +48,7 @@ function convertirTemperatura() {
     let celsius = parseFloat(celsiusInput.value);
 
     if (isNaN(celsius)) {
-        mostrarError("errorConversion", "Por favor, ingrese un número válido.");
+        mostrarError("Por favor, ingrese un número válido.");
         return;
     }
 
