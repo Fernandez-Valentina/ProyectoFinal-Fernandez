@@ -1,11 +1,5 @@
 // utils.js - Funciones Auxiliares
 
-// Generar clima aleatorio
-export function generarClimaAleatorio() {
-    const climas = ["Soleado", "Nublado", "Lluvioso", "Tormentoso", "Nevado"];
-    return climas[Math.floor(Math.random() * climas.length)];
-}
-
 // Generar pronóstico aleatorio para varios días
 export function generarPronostico(dias) {
     const pronostico = ["Soleado", "Nublado", "Lluvioso", "Tormentoso", "Nevado"];
