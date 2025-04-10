@@ -6,58 +6,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="utils.js" defer></script>
     <script type="module" src="app.js" defer></script>
     <link rel="icon" type="image/png" href="assets/mostly_sunny.png">
     <title>SkyCast</title>
 </head>
 <body>
-    <h1>SkyCast</h1>
+    <div class="app-container">
+        <h1>SkyCast</h1>
+        
+        <!-- Buscador de ciudad -->
+        <div class="search-section">
+            <input type="text" id="ciudad" placeholder="Ingrese una ciudad">
+            <button id="buscarClima">Buscar Clima</button>
+        </div>
 
-<div class="container">
+        <!-- Clima actual y pronóstico -->
+        <div class="weather-display" id="resultado"></div>
+        
+        <!-- Conversor de temperatura -->
+        <div class="temperature-converter">
+            <h2>Conversor de Temperatura</h2>
+            <input type="number" id="temperaturaCelsius" placeholder="Temperatura en °C">
+            <button id="convertirTemperatura">Convertir a Fahrenheit</button>
+            <div id="conversionResultado"></div>
+        </div>
 
-    <!--Sección Clima Actual-->
-    <div class="clima-actual">
-        <h2>Consultar Clima Actual</h2>
-        <input type="text" id="ciudad" placeholder="Ingrese una ciudad">
-        <button id="buscarClima">Buscar Clima</button>
-        <p id="errorCiudad"></p>
-
-        <!--Resultados de Clima Actual-->
-        <div id="resultado"></div>
+        <!-- Historial de consultas -->
+        <div class="history-section">
+            <h2>Historial de Consultas</h2>
+            <ul id="historialLista"></ul>
+            <button id="borrarHistorial">Borrar Historial</button>
+        </div>
     </div>
-
-    <!-- Sección Conversor de Temperatura -->
-    <div class="conversor-temperatura">
-        <h2>Conversor de Temperatura</h2>
-        <input type="number" id="temperaturaCelsius" placeholder="Temperatura en °C">
-        <button id="convertirTemperatura">Convertir a Fahrenheit</button>
-        <p id="errorConversion"></p>
-    
-         <!-- Resultado Conversión -->
-         <div id="conversionResultado"></div>
-    </div>
-
-   <!-- Sección Pronóstico del Clima -->
-    <div class="pronostico-clima">
-        <h2>Pronóstico de los Próximos Días</h2>
-        <input type="number" id="dias" placeholder="Ingrese días (1-5)" min="1" max="5">
-        <button id="verPronostico">Ver Pronóstico</button>
-        <p id="errorPronostico"></p>
-
-        <!-- Resultados Pronóstico del Clima -->
-        <div id="pronosticoResultado"></div>
-    </div>
-
-   <!-- Sección Historial de Consultas-->
-    <div class="historial-consultas">
-        <h2>Historial de Consultas</h2>
-        <ul id="historialLista"></ul>
-        <button id="borrarHistorial">Borrar Historial</button>
-    </div>
-
-</div>
 </body>
 </html>

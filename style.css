@@ -1,102 +1,197 @@
 :root {
-    --color-primario: #2f4156;
-    --color-secundario: #f5efeb;
-    --color-terciario: #567c8d;
-    --color-cuaternario: #c8d9e6;
-    --color-botones: #f0d29e;
-    --color-botones-hover: #e8b86f;
+    --background-color: #0a192c;
+    --container-color: #172f48;
+    --secondary-color: #34495e;
+    --text-color: #F3F4F6;
+    --accent-color-hover: #3a5674;
+    --title-color:  #e49a3f;
 }
 
 body {
-    background-color: var(--color-primario);
-    font-family: 'Quicksand', sans-serif;
-    color: var(--color-secundario);
-    padding: 0;
     margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-y: auto;
+}
+
+.app-container {
+    background-color: var(--container-color);
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
 }
 
 h1 {
     text-align: center;
-    font-size: 3.3rem;
-    font-weight: bolder;
-    padding: 1rem;
-    padding-top: 0%;
+    margin-bottom: 20px;
+    color: var(--title-color);
 }
 
-h1::after {
-    content: " ⛅";
-    font-size: 1.3em;
-}
-
-/* Contenedor principal */
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    max-width: 900px;
-    margin: 1rem auto;
-    padding: 0.1rem;
-    align-items: start;
-}
-
-/* Secciones */
-.clima-actual, .pronostico-clima, .conversor-temperatura, .historial-consultas {
-    background-color: var(--color-terciario);
-    padding: 1.5rem;
-    border-radius: 10px;
-    min-height: 12rem;
+/* Buscador ciudad */
+.search-section {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease-in-out;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.clima-actual:hover, .pronostico-clima:hover, .conversor-temperatura:hover, .historial-consultas:hover {
-    transform: scale(1.02);
-}
-
-/* Inputs */
-input {
-    border-radius: 6px;
-    margin-bottom: 0.7rem;
-    padding: 0.6rem;
-    border: 1px solid var(--color-cuaternario);
-    max-width: 100%;
-    text-align: center;
-    font-size: 1rem;
-}
-
-/* Botones */
-button {
-    border-radius: 6px;
-    padding: 0.6rem;
-    background-color: var(--color-botones);
-    color: #333;
-    font-weight: bold;
+.search-section input {
+    padding: 15px;
+    padding-right: 32px;
+    border-radius: 5px;
     border: none;
+    width: 70%;
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+
+.search-section button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--title-color);
+    color: var(--text-color);
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: var(--color-botones-hover);
+.search-section button:hover {
+    background-color: var(--accent-color-hover);
 }
 
-/* Responsivo */
+/* Clima actual y pronóstico */
+.weather-display {
+    margin: 20px;
+    text-align: center;
+    background-color: var(--container-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.current-weather {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.forecast-item {
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Conversor de temperatura */
+.temperature-converter {
+    margin-top: 20px;
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.temperature-converter input {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+.temperature-converter button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--title-color);
+    color: var(--text-color);
+}
+.temperature-converter button:hover {
+    background-color: var(--accent-color-hover);
+    cursor: pointer;
+}
+
+/* Historial */
+.history-section {
+    margin-top: 20px;
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.history-section button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--title-color);
+    color: white;
+    cursor: pointer;
+}
+
+.history-section button:hover {
+    background-color: var(--accent-color-hover);
+}
+
+.weather-display img {
+    filter: drop-shadow(0 0 4px rgb(223, 223, 218));
+  }
+  
+  .forecast-item img {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0;
+    object-fit: contain;
+  }
+
+@media (max-width: 1024px) {
+    .app-container {
+        max-width: 90%;
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .container {
+    .app-container {
+        padding: 15px;
+    }
+
+    .search-section input {
+        width: 60%;
+    }
+
+    .forecast-container {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0.5rem;
     }
 
-    .clima-actual, .pronostico-clima, .conversor-temperatura, .historial-consultas {
-        min-height: auto;
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-container {
+        padding: 10px;
     }
 
-    input {
-        font-size: 0.9rem;
+    .search-section input {
+        width: 55%;
+    }
+
+    .forecast-item {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
     }
 }
